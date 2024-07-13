@@ -67,6 +67,8 @@ if [[ ! -f "$PASSWORD_FILE" ]]; then
     sudo chown root:root "$PASSWORD_FILE"
     sudo chmod 600 "$PASSWORD_FILE"
     echo "'$PASSWORD_FILE'  permission was set"
+else
+    echo "'$PASSWORD_FILE' already exists"
 
 fi
 
