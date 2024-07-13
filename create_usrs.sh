@@ -61,8 +61,13 @@ PASSWORD_FILE="/var/secure/user_passwords.csv"
 
 # Create the password.csv and set user and group access to root 
 if [[ ! -f "$PASSWORD_FILE" ]]; then
+    sudo mkdir -p /var/secure/
     sudo touch "$PASSWORD_FILE"
+    echo "'$PASSWORD_FILE' was created"
     sudo chown root:root "$PASSWORD_FILE"
+    sudo chmod 600 "$PASSWORD_FILE"
+    echo "'$PASSWORD_FILE'  permission was set"
+
 fi
 
 while IFS=";" read -r username groups; do
